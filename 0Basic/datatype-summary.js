@@ -23,3 +23,7 @@
 //        Arrays  =>  object
 //        Function  =>  function
 //        Object  =>  object
+
+//Stack =  Primitive.
+//Heap =  Non-Primitive or Reffrence.
+
