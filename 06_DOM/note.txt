@@ -1,0 +1,35 @@
+document.getElementById("title");
+
+// we can access it's attributes in DOM by .id , className, 
+note:  but we can't get access by .class in DOM because DOM can understand class as a "className".
+
+eg:-
+
+document.getElementById("title").className;
+document.getElementById("title").id;
+
+> Not Like This :
+
+document.getElementById("title").class; 
+note: 
+    1) it will return undefined. because behind the seen document understand class as a className, 
+    2) yes it can show you in browser class but understand as a "className" okay.
+
+
+--------------------------------------------------------------
+ => 2 way to ask attributes to DOM or document of browser.
+--------------------------------------------------------------
+
+eg : 
+
+ document.getElementById("title").getAttribute('class')
+
+ output : 'heading'  // it is the name of class.
+
+ :::: we can "SET" overwrite and add new class attribute or class name in our existing class ::::::
+
+ like this >
+  
+   
+  
+
