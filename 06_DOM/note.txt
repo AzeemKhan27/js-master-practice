@@ -22,14 +22,61 @@ note:
 
 eg : 
 
- document.getElementById("title").getAttribute('class')
+ document.getElementById("title").getAttribute('class')     
 
  output : 'heading'  // it is the name of class.
 
- :::: we can "SET" overwrite and add new class attribute or class name in our existing class ::::::
+ :::: we can "SET" and overwrite and add new class attribute or class name in our existing class ::::::
 
  like this >
-  
-   
-  
+  document.getElementById("title").getAttribute('class','heading updated heading') //set/add new class 
+  document.getElementById("title").getAttribute('class','heading') //overwrite 'heading value'
 
+:::::: set styles with JS :::::::::
+
+>  title.style.backgroundColor = 'green'
+   
+:::::: find content from elements :::::::
+
+title.textContent  := it will show all text in parent tag and it's child tag both.
+title.innerHTML    := but innerHTML shows all content with html tags, that's why mostly we use innerHTML to set/update context.
+title.innerText    := but it shows only parent tag content only.
+
+
+:::::: querySelector :::::::
+
+it can retrieve by tags,css selectors, class, id, etc. **but it will shows only first tag text**
+
+
+:::::: querySelectorAll :::::::
+
+document.querySelectorAll('li')   // it will return all li in **NodeList**
+
+note : NodeList is differ from Array but we can't say it's totally different but it is like an array.
+
+> const myH1 = document.querySelectorAll('h1')  // we are accessing all h1 tag but we have only one then it will return one h1 tag.
+> myH1; //I check value
+> myH1.style.color = 'red'    // I tried to style it and change color of text. but it is not changing because ''NodeList'' like an array.
+> myH1[0].style.color = 'red' // we have to define it's index value because ''NodeList'' like an array.
+
+note :- when we use "querySelectorAll" then we got one method in 'NodeList' is = forEach(), we can iterate by this method/function.
+
+eg :-
+
+tempList.forEach((l)=>{
+    l.style.backgoundColor = 'green'
+})
+
+
+::::::::::::::::: getElementByClassName() ::::::::::::::::::::::
+
+const tempClassList = document.getElementsByClassName('list-item') // it return data in ''HTMLCollection'' 
+note : HTMLCollection dataType total differ from NodeList and array, we can iterate values with this. we have to convert it in an array.
+
+Array.from(tempClassList)   // converting HTMLCollection datatype into array.
+
+const myConvertedArray = Array.from(tempClassList);  // we assigned converted array value in variable.
+
+myConvertedArray.forEach(function(li){ 
+    li.style.color = "orange" 
+})
