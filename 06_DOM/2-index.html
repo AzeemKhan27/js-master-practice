@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM-2</title>
+</head>
+<body style="background-color: #212121; color : #fff">
+    <div class="parent">
+        <div class="day">Monday</div>
+        <div class="day">Tuesday</div>
+        <div class="day">Wednesday</div>
+        <div class="day">Thursday</div>
+    </div>
+</body>
+<script>
+    const parent = document.querySelector('.parent');
+    // console.log(parent);
+    // console.log(parent.children); // it will return data in HTMLCollection.
+    // console.log(parent.children[1].innerHTML); // HTMLCollection is like an array so we can iterate value by [0] but we can't use eg :- forEach(), map(), filter() to iterate data.
+
+    // for(let i=0; i<parent.children.length; i++){
+    //     console.log(parent.children[i].innerHTML);
+    // }
+    parent.children[1].style.color = "orange";
+
+    console.log(parent.firstElementChild);
+    console.log(parent.lastElementChild);
+
+    //child to parent
+    const dayOne = document.querySelector(".day") // it will give us one element only.
+    console.log(dayOne);
+    //parent access throw children.
+    console.log(dayOne.parentElement);
+    console.log(dayOne.nextElementSibling);
+</script>
+</html>
