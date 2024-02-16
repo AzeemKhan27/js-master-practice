@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EVENTs in JS</title>
+</head>
+
+<body style="background-color: #414141; color: aliceblue;">
+    <h2>Amazing image</h2>
+    <div >
+        <ul id="images">
+            <li><img width="200px" id="photoshop" src="https://images.pexels.com/photos/3561339/pexels-photo-3561339.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="photoshop"></li>
+            <li><img width="200px" id="japan" src="https://images.pexels.com/photos/3532553/pexels-photo-3532553.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><img width="200px" id="river" src="https://images.pexels.com/photos/3532551/pexels-photo-3532551.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><img width="200px" id="owl" src="https://images.pexels.com/photos/3532552/pexels-photo-3532552.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="" ></li>
+            <li><img width="200px" id="prayer" src="https://images.pexels.com/photos/2522671/pexels-photo-2522671.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><a style="color: aliceblue;" href="https://google.com" id="google">Google</a></li>
+        </ul>
+   </div>
+</body>
+
+<script>
+
+    // document.getElementById('owl').onclick = function(){
+    //     alert("owl clicked!")
+    // }
+
+    //attachEvent() : we were used to perform events in Internet Explorer.
+    //jquery :  we are using .on in jquery.
+
+    //::: need to explore type of .addEventListener :::
+
+    // type, timestamps, preventDefault(),
+    // target, toElement, srcElement, currentTarget,
+    // clientX, clientY, screenX , screenY,
+    // altkey, ctrlkey, shiftkey, keyCode.
+
+
+    //::: (1) event propogation or bubbling in JS addEventListener :::
+
+    //Note: when we click in children element of document , it will show result of children first than parent element result.
+    //      and we called of this process , this is call event propogation and we say bubling.
+
+    /*
+    document.getElementById('images').addEventListener('click',function(e){
+        console.log("clicked inside the ul");
+    },false);
+
+    document.getElementById('owl').addEventListener('click',function(e){
+        console.log("owl has been clicked");
+    },false);
+
+    */
+
+    // ::: ::: ::: :::END::: ::: ::: :::
+
+    //::: (2) CAPTURING in eventListener ::: 
+    // Note : it will return result from top to bottom, and it's an opposite from "Event Propogation".
+
+    /*
+     document.getElementById('images').addEventListener('click',function(e){
+        console.log("clicked inside the ul");
+    },true);
+
+
+    //best approach
+    document.getElementById('owl').addEventListener('click',function(e){
+        console.log("owl has been clicked");
+    },true);
+
+    */
+
+
+    // we used e.stopPropagation in event listener ,
+
+   /*
+
+    document.getElementById('images').addEventListener('click',function(e){
+        console.log("clicked inside the ul");
+    },false);
+
+    // when we want to stop execution of parent element result, than we can use e.stopPropagation() function
+    document.getElementById('owl').addEventListener('click',function(e){
+        console.log("owl has been clicked");
+        e.stopPropagation();
+    },false);
+
+    document.getElementById('google').addEventListener('click',function(e){
+        e.preventDefault();
+        e.stopPropagation();
+        console.log("google checked...")
+    })
+
+  */
+
+
+  // ::::::::::::::::::::::::::: MAIN WORK ::::::::::::::::::::::::::::::::::::::::
+
+  document.querySelector("#images").addEventListener('click', function(e){
+     console.log(e.target.tagName);
+     if(e.target.tagName === 'IMG'){
+        console.log(e.target.id);
+        let removeIt = e.target.parentNode;
+        removeIt.remove()
+     }
+  },false);
+
+  // removeIt = parentNode.removeChild(removeIt);
+  
+
+</script>
+
+</html>
