@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>setInterval and clearInterval</title>
+</head>
+<body>
+    <h1>setInterval and clearInterval</h1>
+    <button id="start">Start</button>
+    <button id="stop">Stop</button>
+</body>
+
+<script>
+    
+    let i = 1;
+
+    const sayDate = function(str){
+        console.log(str, i);
+        i++;
+    }
+
+    const stopInterVal = function(str){
+        clearInterval(intervalId); // Use intervalId here instead of stopInterVal
+        console.log(str);
+    }
+
+    let intervalId;
+
+    document.getElementById('start').addEventListener('click', function(){
+        intervalId = setInterval(function(){
+            sayDate("Hi, let's start!");
+        }, 1000);
+    });
+
+    document.getElementById('stop').addEventListener('click',function(){
+        stopInterVal("Interval has stopped.");
+    });
+    
+</script>
+
+</html>
