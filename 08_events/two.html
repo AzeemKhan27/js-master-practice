@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>setTimeout()</title>
+</head>
+<body>
+    <h1>Previous</h1>
+    <button id="stop">Stop</button>
+</body>
+
+<script>
+    const sayHello = function(){
+       console.log("hello")
+    }
+    const changeText = function(){
+        document.querySelector('h1').innerHTML = "East ho ya West JS is the Best"
+    }
+
+  const changeMe = setTimeout(changeText,10000);  // we are passing "changeText" as refrence of function, not executing the function.
+
+  document.querySelector('#stop').addEventListener('click',function(){
+    clearTimeout(changeMe)
+    console.log("STOPPED");
+  })
+
+</script>
+ 
+</html>
