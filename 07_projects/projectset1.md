@@ -12,6 +12,12 @@
 ## project 4 | Game for guess number - Solution code
 [Guess Number](https://stackblitz.com/edit/dom-project-chaiaurcode-ovicgm?file=4-GuessTheNumber%2Fchaiaurcode.js,4-GuessTheNumber%2Findex.html)
 
+## project 5 | Start/Stop Changing background color by click
+[RandomBgColor](https://stackblitz.com/edit/dom-project-chaiaurcode-3rysv9?file=6-unlimitedColors%2Findex.html,6-unlimitedColors%2Fchaiaurcode.js)
+
+## project 6 | check press key
+[checkKeyCode](https://stackblitz.com/edit/dom-project-chaiaurcode-uqvser?file=5-keyboard%2Findex.html,5-keyboard%2Fchaiaurcode.js)
+
 ```javaScript 
 console.log("azeem khan")
 
