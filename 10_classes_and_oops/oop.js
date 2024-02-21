@@ -34,3 +34,8 @@ function User(username, loginCount, isLoggedIn){
 const userOne = new User("azeemkhan", 13, true);
 // const userTwo = new User("azeem", 11, false);
 console.log(userOne.constructor);  // .constructor is the keyword
+
+// --------------: instanceof operator tests :----------------
+
+console.log(userOne instanceof User);
+console.log(userOne instanceof Object);
