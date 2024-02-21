@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color: #212121;">
+
+    0	UNSENT	Client has been created. open() not called yet.
+    1	OPENED	open() has been called.
+    2	HEADERS_RECEIVED	send() has been called, and headers and status are available.
+    3	LOADING	Downloading; responseText holds partial data.
+    4	DONE	The operation is complete.
+
+</body>
+<script>
+    const requestUrl = 'https://api.github.com/users/AzeemPathan9897'
+    const xhr = new XMLHttpRequest();
+    let data;
+
+    function createUsercard(){
+
+        // Create new div element to represent the card
+        const card = document.createElement("div");
+        card.classList.add("card");
+
+        // Create a header element for the card
+        const header = document.createElement("h2");
+        header.innerText = "User Information";
+
+        // Create paragraph element for followers count
+        const followers = document.createElement("p");
+
+        // Create image element for avatar
+        const avatar = document.createElement('img');
+        avatar.classList.add("avatar");
+
+         // Append all elements to the card
+         card.appendChild(header);
+            card.appendChild(avatar);
+            card.appendChild(followers);
+
+            // Append the card to the body of document
+            document.body.appendChild(card);
+
+        xhr.open('GET', requestUrl)
+        xhr.onreadystatechange = function(){
+
+            if (xhr.readyState === 4) {
+                if (xhr.status === 200) {
+                    const data = JSON.parse(xhr.responseText);
+                    // Update card elements with fetched data
+                    header.innerText = data.login;
+                    avatar.src = data.avatar_url;
+                    followers.innerText = "Followers: " + data.followers;
+                } else {
+                    console.error('Request failed with status ' + xhr.status);
+                }
+            }
+        }
+        xhr.send();
+    }
+
+   // Call the function to generate the card
+   createUsercard();
+
+</script>
+</html>
