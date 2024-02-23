@@ -5,17 +5,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Closure</title>
 </head>
-<body>
+<body style = "background-color: #313131;"> 
     <script>
-        function init(){
-            let name = 'Mozilla';
-            function displayName(){
-                //displayName() is the inner function, that forms the closure.
-                console.log(name); //use variable declared in the parent function.
+        // function init(){
+        //     let name = 'Mozilla';
+        //     function displayName(){
+        //         //displayName() is the inner function, that forms the closure.
+        //         console.log(name); //use variable declared in the parent function.
+        //     }
+        //     displayName();
+        // }
+        // init();
+
+        
+    /*    //-----------------LEXICAL_SCOPE------------------
+
+        function outer(){
+            let username = "azeemkhan";
+            function inner(){
+                console.log(`INNER : ${username}`);
             }
-            displayName();
+            function innerTwo(){
+                console.log("InnerTwo :",username);
+            }
+            inner()
+            innerTwo()
         }
-        init();
+        outer()
+        // console.log(`TOO OUTER ${username}`);
+        // Lexical scope :  childrens function can access value of parent function but parent does not share to children and siblings function is also not allowing it's values to others.
+     */
+
     </script>
 </body>
 </html>
