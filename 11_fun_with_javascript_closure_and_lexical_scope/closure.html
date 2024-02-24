@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Closure</title>
+</head>
+<body style = "background-color: #313131;"> 
+    <button id="orange">Orange</button>
+    <button id="green">Green</button>
+
+
+    <!-- Second Script work. -->
+    <script>
+
+        // document.getElementById('orange').onclick = function(){
+        //     document.body.style.backgroundColor = `orange`;
+        // }
+        // document.getElementById('green').onclick = function(){
+        //     document.body.style.backgroundColor = `green`;
+        // }
+
+        // ---------- BEST EXAMPLE OF CLOSURE Function | good approach and where we can use closure ----------
+
+        function clickHandler(color){
+            // document.body.style.backgroundColor = `${color}`;
+            return function(){
+                document.body.style.backgroundColor = `${color}`;    // this color value will be parent func value because of lexical scope in javascript.
+            }
+        }
+
+        document.getElementById('orange').onclick = clickHandler("orange");
+        document.getElementById('green').onclick = clickHandler("green");
+
+    </script>
+
+    <script>
+        // function init(){
+        //     let name = 'Mozilla';
+        //     function displayName(){
+        //         //displayName() is the inner function, that forms the closure.
+        //         console.log(name); //use variable declared in the parent function.
+        //     }
+        //     displayName();
+        // }
+        // init();
+
+        
+    /*    //-----------------LEXICAL_SCOPE------------------
+
+        function outer(){
+            let username = "azeemkhan";
+            function inner(){
+                console.log(`INNER : ${username}`);
+            }
+            function innerTwo(){
+                console.log("InnerTwo :",username);
+            }
+            inner()
+            innerTwo()
+        }
+        outer()
+        // console.log(`TOO OUTER ${username}`);
+        // Lexical scope :  childrens function can access value of parent function but parent does not share to children and siblings function is also not allowing it's values to others.
+     */
+
+    /*
+
+     //==============CLOSURE==============
+
+     function makeFunc(){
+        const name = "Mozilla";
+        function displayName(){
+            console.log(name);
+        }
+        return displayName;
+     }
+
+     const myFunc = makeFunc();
+     myFunc();
+
+    //  CLOSURE : When we return whole function as a refrence, then closure return complete lexical scope.
+
+    */
+
+    </script>
+</body>
+</html>
